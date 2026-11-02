@@ -1,0 +1,7 @@
+1. Shrawani Chavare– Team Lead + Data Engineering Integration: Overall coordination, Kafka setup and integration of all components.
+
+2. Harshit Doijad– Python Developer: Generating simulated IoT sensor data using Python and connecting it to the streaming pipeline.
+
+3. Shaikh MD Ashraf– Data Engineer: Handling Snowflake database setup, SQL queries and dbt for data transformation.
+
+4. Pragyansh Gaur– BI Developer: Setting up Apache Superset and creating dashboards for data visualization.
