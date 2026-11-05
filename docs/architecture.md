@@ -1,4 +1,9 @@
-Architecture Diagram
+
+# AtmoSync System Architecture
+
+## Architecture Diagram
+
+```mermaid
 flowchart TD
     A["Python Sensor Simulator"] --> B["Kafka Producer"]
     B --> C["Kafka Broker"]
@@ -7,11 +12,10 @@ flowchart TD
     E --> F["Snowflake RAW Database"]
     F --> G["dbt Transformations"]
     G --> H["Apache Superset Dashboard"]
-
-    
-# AtmoSync System Architecture
+```
 
 ## Overview
+
 AtmoSync is a real-time IoT data pipeline designed to monitor avocado storage containers.
 
 ## Working Process
@@ -26,9 +30,10 @@ AtmoSync is a real-time IoT data pipeline designed to monitor avocado storage co
 8. Apache Superset displays the processed data through dashboards.
 
 ## Technologies Used
+
 - Python
 - Apache Kafka
 - Snowflake
 - dbt
 - Apache Superset
-
+  
