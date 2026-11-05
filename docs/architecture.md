@@ -31,5 +31,4 @@ AtmoSync is a real-time IoT data pipeline designed to monitor avocado storage co
 - Snowflake
 - dbt
 - Apache Superset
-- 
-    
+
