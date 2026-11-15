@@ -1,28 +1,45 @@
 
 import random
 import json
+import os
 from datetime import datetime, timezone
 
-sensor_readings = []
-
-for i in range(5):
-
-    data = {
+def generate_sensor_reading(sensor_id):
+    return {
         "container_id": "AVO_001",
-        "sensor_id": "SEN_01",
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "sensor_id": sensor_id,
+        "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "temperature": round(random.uniform(5, 15), 2),
         "humidity": round(random.uniform(60, 90), 2),
         "vibration": round(random.uniform(0.1, 1.0), 2)
     }
 
-    sensor_readings.append(data)
+def generate_readings(total_readings):
+    sensor_ids = ["SEN_01", "SEN_02", "SEN_03"]
+    readings = []
 
-# Display readings in JSON format
-print(json.dumps(sensor_readings, indent=4))
+    for i in range(total_readings):
+        sensor_id = sensor_ids[i % len(sensor_ids)]
+        readings.append(generate_sensor_reading(sensor_id))
 
-# Save readings into a JSON file
-with open("sample_output.json", "w") as file:
-    json.dump(sensor_readings, file, indent=4)
+    return readings
 
-print("\n5 sensor readings generated successfully!")
+def save_readings(readings, filename):
+    folder = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(folder, filename)
+
+    with open(file_path, "w") as file:
+        json.dump(readings, file, indent=4)
+
+    print("File saved at:", file_path)
+
+def main():
+    readings = generate_readings(10)
+
+    print(json.dumps(readings, indent=4))
+    save_readings(readings, "sample_output.json")
+
+    print("\n10 sensor readings generated successfully!")
+
+if __name__ == "__main__":
+    main()
