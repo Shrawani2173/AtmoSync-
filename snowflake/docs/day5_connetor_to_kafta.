@@ -1,0 +1,78 @@
+# Snowflake and Kafka Connection Setup (Ashraf)
+
+## 1. Snowflake objects
+
+| Item | Name |
+|---|---|
+| Warehouse | ATMOSYNC_WH (XSMALL, auto-suspend 60s) |
+| Database | ATMOSYNC_DB |
+| Schemas | RAW, STAGING, ANALYTICS |
+| Connector role | KAFKA_CONNECTOR_ROLE |
+| Connector user | KAFKA_USER |
+
+## 2. RAW tables (ATMOSYNC_DB.RAW)
+
+| Table | Purpose |
+|---|---|
+| IOT_SENSOR_RAW | Kafka connector loads full JSON here (RECORD_CONTENT, RECORD_METADATA) |
+| IOT_SENSOR_READINGS | One column per sensor field, including LOCATION |
+| COMMODITY_PRICES_RAW | Commodity prices by market and location |
+
+## 3. Kafka to Snowflake connection
+
+Authentication uses an RSA key pair (key-pair login), not a password.
+
+- The key pair was generated locally with openssl.
+- The **public key** is registered in Snowflake on KAFKA_USER
+  (`ALTER USER KAFKA_USER SET RSA_PUBLIC_KEY = '<public key>';`).
+- The **private key** was shared privately with Shrawani only. It is
+  used in her connector config as `snowflake.private.key`.
+- Keys are stored outside this repo and are never committed.
+
+Connector settings (no secrets):
+
+```properties
+snowflake.url.name=TJBRGSZ-RX49654.snowflakecomputing.com:443
+snowflake.user.name=KAFKA_USER
+snowflake.role.name=KAFKA_CONNECTOR_ROLE
+snowflake.database.name=ATMOSYNC_DB
+snowflake.schema.name=RAW
+snowflake.topic2table.map=<kafka_topic>:IOT_SENSOR_RAW
+```
+
+## 4. Sensor data format
+
+```json
+{
+  "container_id": "AVO_001",
+  "sensor_id": "SEN_01",
+  "timestamp": "2026-11-05T10:30:00Z",
+  "temperature": 8.5,
+  "humidity": 75.2,
+  "vibration": 0.35,
+  "location": "Mumbai Port"
+}
+```
+
+## 5. How to check the connection
+
+```sql
+DESC USER KAFKA_USER;                        -- RSA_PUBLIC_KEY_FP should have a value
+SELECT COUNT(*) FROM ATMOSYNC_DB.RAW.IOT_SENSOR_RAW;
+```
+
+## 6. Work log
+
+| Day | Task | Status |
+|---|---|---|
+| 1 | Snowflake account, warehouse, database | Done |
+| 2 | RAW tables | Done |
+| 3 | Check table schema, connector role and user | Done |
+| 4 | Fix load and schema bugs | In progress |
+| 5 | Load price data | In progress |
+
+## 7. Security rules
+
+- Never commit `rsa_key.p8` (private key) or any password.
+- Share the private key only in a private message.
+- If a private key is exposed, generate a new pair and update the public key in Snowflake.
