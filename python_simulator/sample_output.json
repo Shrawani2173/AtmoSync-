@@ -1,0 +1,82 @@
+[
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_01",
+        "timestamp": "2026-11-15T11:23:35.573505Z",
+        "temperature": 5.74,
+        "humidity": 83.96,
+        "vibration": 0.74
+    },
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_02",
+        "timestamp": "2026-11-15T11:23:35.573560Z",
+        "temperature": 13.78,
+        "humidity": 74.79,
+        "vibration": 0.15
+    },
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_03",
+        "timestamp": "2026-11-15T11:23:35.573579Z",
+        "temperature": 15.0,
+        "humidity": 79.67,
+        "vibration": 0.45
+    },
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_01",
+        "timestamp": "2026-11-15T11:23:35.573593Z",
+        "temperature": 12.64,
+        "humidity": 85.79,
+        "vibration": 0.84
+    },
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_02",
+        "timestamp": "2026-11-15T11:23:35.573605Z",
+        "temperature": 7.68,
+        "humidity": 73.37,
+        "vibration": 0.15
+    },
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_03",
+        "timestamp": "2026-11-15T11:23:35.573618Z",
+        "temperature": 12.42,
+        "humidity": 77.11,
+        "vibration": 0.7
+    },
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_01",
+        "timestamp": "2026-11-15T11:23:35.573629Z",
+        "temperature": 6.01,
+        "humidity": 76.79,
+        "vibration": 0.24
+    },
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_02",
+        "timestamp": "2026-11-15T11:23:35.573641Z",
+        "temperature": 12.67,
+        "humidity": 87.15,
+        "vibration": 0.54
+    },
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_03",
+        "timestamp": "2026-11-15T11:23:35.573653Z",
+        "temperature": 7.63,
+        "humidity": 88.29,
+        "vibration": 0.7
+    },
+    {
+        "container_id": "AVO_001",
+        "sensor_id": "SEN_01",
+        "timestamp": "2026-11-15T11:23:35.573664Z",
+        "temperature": 14.83,
+        "humidity": 81.92,
+        "vibration": 1.0
+    }
+]
