@@ -1,8 +1,8 @@
-# AtmoSync – System Architecture
++ # AtmoSync – System Architecture
 
 ## 1. Project Overview
 AtmoSync is an IoT-based data monitoring and analytics system designed to monitor avocado storage conditions using simulated sensor readings.
-
+   
 ## 2. System Workflow
 
 ```mermaid
