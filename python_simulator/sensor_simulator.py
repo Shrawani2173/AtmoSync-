@@ -2,6 +2,7 @@
 import random
 import json
 import os
+import time
 from datetime import datetime, timezone
 
 def generate_sensor_reading(sensor_id):
@@ -20,7 +21,13 @@ def generate_readings(total_readings):
 
     for i in range(total_readings):
         sensor_id = sensor_ids[i % len(sensor_ids)]
-        readings.append(generate_sensor_reading(sensor_id))
+        reading = generate_sensor_reading(sensor_id)
+        readings.append(reading)
+
+        print(f"Reading {i + 1} generated")
+
+        if i < total_readings - 1:
+            time.sleep(2)
 
     return readings
 
