@@ -57,3 +57,26 @@ To provide a clear visual representation of micro-climate data and help users mo
 Note
 
 Actual charts and sensor readings will be connected after the project data becomes available in Snowflake.
+
+## 9. Dashboard Data Validation and Monitoring
+
+### Data Validation
+- Verify temperature readings before displaying them.
+- Check humidity values for missing or invalid entries.
+- Validate sensor location information.
+- Ensure timestamps are available for every sensor record.
+
+### Dashboard Monitoring
+- Monitor incoming IoT sensor data.
+- Track temperature and humidity trends.
+- Compare environmental conditions across locations.
+- Identify missing or incomplete sensor records.
+
+### Future Enhancements
+- Improve dashboard filtering options.
+- Add automatic data refresh.
+- Enhance chart readability.
+- Integrate validated data from Snowflake.
+
+### Expected Outcome
+The dashboard will provide a clear view of IoT sensor data and support better environmental data analysis.
